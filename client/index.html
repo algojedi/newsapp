@@ -1,15 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World News</title>
-    <link rel="stylesheet" href="styles/styles.css">
-</head>
-<body>
-   <h2>I hope this works!!!</h2> 
-   <button onclick="btnClicked()">click me</button>
-   <div id="info"></div>
-   <script src="script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>World News</title>
+        <link rel="stylesheet" href="styles/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <h2 class="header_title">World News</h2>
+        </header>
+        <main class="main" id="main">
+            <div class="card" name="ca" onclick="cardClicked(this)" id="card">
+                <div class="card_side card_side--front can">
+                    <div class="card_side--front_picture"></div>
+                    <!-- <i class="fas fa-sync-alt card_side_flip"></i> -->
+                    <h3 class="card_side--front_title">Canada</h3>
+                    <!-- <p class="card_side--front_desc">
+              An progressive web application that toggles word definitions to
+              Ocean using Nginx / Cloudflare for quick loading.
+            </p> -->
+                </div>
+                <div class="card_side card_side--back">
+                    <i class="fas fa-sync-alt card_side_flip"></i>
+                    <h3 class="card_side--back_title">Technical Sheet</h3>
+                    <hr class="styled-hr styled-hr--white" />
+                    <ul class="card_side--back_techlist">
+                        <li class="card_side--back_techlist_item">
+                            React / Router / Context
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Material UI
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Node / Express
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Mongoose / MongoDB / Redis
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            JWT Authentication
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" onclick="cardClicked(this)" id="card">
+                <div class="card_side card_side--front us">
+                    <div class="card_side--front_picture"></div>
+                    <!-- <i class="fas fa-sync-alt card_side_flip"></i> -->
+                    <h3 class="card_side--front_title">US</h3>
+                    <!-- <p class="card_side--front_desc">
+              An progressive web application that toggles word definitions to
+              Ocean using Nginx / Cloudflare for quick loading.
+            </p> -->
+                </div>
+                <div class="card_side card_side--back">
+                    <i class="fas fa-sync-alt card_side_flip"></i>
+                    <h3 class="card_side--back_title">Technical Sheet</h3>
+                    <hr class="styled-hr styled-hr--white" />
+                    <ul class="card_side--back_techlist">
+                        <li class="card_side--back_techlist_item">
+                            React / Router / Context
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Material UI
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Node / Express
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Mongoose / MongoDB / Redis
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            JWT Authentication
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="cardClicked(this)" id="card">
+                <div class="card_side card_side--front uk">
+                    <div class="card_side--front_picture"></div>
+                    <!-- <i class="fas fa-sync-alt card_side_flip"></i> -->
+                    <h3 class="card_side--front_title">United Kingdom</h3>
+                    <!-- <p class="card_side--front_desc">
+              An progressive web application that toggles word definitions to
+              Ocean using Nginx / Cloudflare for quick loading.
+            </p> -->
+                </div>
+                <div class="card_side card_side--back">
+                    <i class="fas fa-sync-alt card_side_flip"></i>
+                    <h3 class="card_side--back_title">Technical Sheet</h3>
+                    <hr class="styled-hr styled-hr--white" />
+                    <ul class="card_side--back_techlist">
+                        <li class="card_side--back_techlist_item">
+                            React / Router / Context
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Material UI
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Node / Express
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Mongoose / MongoDB / Redis
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            JWT Authentication
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="cardClicked(this)" id="card">
+                <div class="card_side card_side--front india">
+                    <div class="card_side--front_picture"></div>
+                    <!-- <i class="fas fa-sync-alt card_side_flip"></i> -->
+                    <h3 class="card_side--front_title">India</h3>
+                    <!-- <p class="card_side--front_desc">
+              An progressive web application that toggles word definitions to
+              Ocean using Nginx / Cloudflare for quick loading.
+            </p> -->
+                </div>
+                <div class="card_side card_side--back">
+                    <i class="fas fa-sync-alt card_side_flip"></i>
+                    <h3 class="card_side--back_title">Technical Sheet</h3>
+                    <hr class="styled-hr styled-hr--white" />
+                    <ul class="card_side--back_techlist">
+                        <li class="card_side--back_techlist_item">
+                            React / Router / Context
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Material UI
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Node / Express
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Mongoose / MongoDB / Redis
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            JWT Authentication
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onclick="cardClicked(this)" id="card">
+                <div class="card_side card_side--front au">
+                    <div class="card_side--front_picture"></div>
+                    <!-- <i class="fas fa-sync-alt card_side_flip"></i> -->
+                    <h3 class="card_side--front_title">Austrailia</h3>
+                    <!-- <p class="card_side--front_desc">
+              An progressive web application that toggles word definitions to
+              Ocean using Nginx / Cloudflare for quick loading.
+            </p> -->
+                </div>
+                <div class="card_side card_side--back">
+                    <i class="fas fa-sync-alt card_side_flip"></i>
+                    <h3 class="card_side--back_title">Technical Sheet</h3>
+                    <hr class="styled-hr styled-hr--white" />
+                    <ul class="card_side--back_techlist">
+                        <li class="card_side--back_techlist_item">
+                            React / Router / Context
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Material UI
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Node / Express
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            Mongoose / MongoDB / Redis
+                        </li>
+                        <li class="card_side--back_techlist_item">
+                            JWT Authentication
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </main>
+        <button onclick="btnClicked()">click me</button>
+        <div id="info"></div>
+        <script src="script.js"></script>
+    </body>
 </html>
