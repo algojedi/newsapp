@@ -41,11 +41,7 @@ const cardClicked = (element) => {
     console.log(element)
     console.log(element.getAttribute('name'))
     const cardName = element.getAttribute('name')
-    // const articles = await getArticles(cardName)
     getArticles(cardName)
-    // console.log('response from getting articles.. ')
-    // console.log(articles)
-    //   main.style.flexDirection = 'column'
 }
 
 const getArticles = (name) => {
@@ -79,7 +75,6 @@ const getArticles = (name) => {
 }
 
 const dispalyArticles = (articles, name) => {
-    const mypic = 'http://sukh-dev.me/images/sbphoto.jpg'
     if (!articles) return
     let toDisplay = ''
     articles.forEach((article) => {
@@ -90,14 +85,34 @@ const dispalyArticles = (articles, name) => {
             <h2 class='article-title'>${article.title}</h2>
             <p class='article-date'>${article.publishedAt.slice(0, 10)}</p>
             <p class='article-desc'>${article.description}</p>
-            <a class='article-link' href=${article.url} target="_blank">Link to article</a> 
+            <a class='article-btn-link' href=${article.url} target="_blank">Link to article</a> 
             <hr>
         </div>
         `
     })
-    const cdaArticles = document.getElementById('cda-articles')
-    cdaArticles.innerHTML = toDisplay
-    info.innerHTML = `<img src=${mypic} />`
+    // const cdaArticles = document.getElementById('cda-articles')
+    const elementToFill = findElement(name)
+    if (!elementToFill) return // TODO: assign error html to an element that displays errors
+    elementToFill.innerHTML = toDisplay
+    // cdaArticles.innerHTML = toDisplay
 }
+
+const findElement = name => {
+    switch (name) {
+        case 'ca':
+            return document.getElementById('can-articles') 
+        case 'us':
+            return document.getElementById('us-articles') 
+        case 'uk':
+            return document.getElementById('uk-articles') 
+        case 'au':
+            return document.getElementById('au-articles') 
+        case 'in':
+            return document.getElementById('in-articles') 
+        default:
+            return null
+    }
+}
+
 
 // country codes: au, ca, us, gb, in
