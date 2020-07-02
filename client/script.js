@@ -1,5 +1,6 @@
 const info = document.getElementById('info')
 const main = document.getElementById('main')
+const numOfArticlesToDisplay = 7
 
 const state = {
     cardFlipped: false,
@@ -35,14 +36,15 @@ const displayResults = (results) => {
 }
 
 // ----------------- functionality for the cards in projects section
-const cardClicked = async (element) => {
+const cardClicked = (element) => {
     element.classList.toggle('flipped')
     console.log(element)
     console.log(element.getAttribute('name'))
     const cardName = element.getAttribute('name')
-    const articles = await getArticles(cardName)
-    console.log('response from getting articles.. ')
-    console.log(articles)
+    // const articles = await getArticles(cardName)
+    getArticles(cardName)
+    // console.log('response from getting articles.. ')
+    // console.log(articles)
     //   main.style.flexDirection = 'column'
 }
 
@@ -65,17 +67,37 @@ const getArticles = (name) => {
         state.isLoading = false
         if (this.status == 200) {
             // console.log(this.responseText)
-            const results = filterResults(this.responseText)
+            const result = JSON.parse(this.responseText)
+            const topArticles = result.filter((el, i) => {
+                return i < numOfArticlesToDisplay
+            })
+            console.log(topArticles)
+            dispalyArticles(topArticles, name)
         }
     }
-
     xhr.send()
 }
 
-const filterResults = (data) => {
-    if (!data) console.log('there was an error filtering results')
-
-    const filtered = data.filter((el) => {})
+const dispalyArticles = (articles, name) => {
+    const mypic = 'http://sukh-dev.me/images/sbphoto.jpg'
+    if (!articles) return
+    let toDisplay = ''
+    articles.forEach((article) => {
+        console.log(article.urlToImage)
+        toDisplay += ` 
+        <div class="article"> 
+            <img class="article-photo" src=${article.urlToImage}>
+            <h2 class='article-title'>${article.title}</h2>
+            <p class='article-date'>${article.publishedAt.slice(0, 10)}</p>
+            <p class='article-desc'>${article.description}</p>
+            <a class='article-link' href=${article.url} target="_blank">Link to article</a> 
+            <hr>
+        </div>
+        `
+    })
+    const cdaArticles = document.getElementById('cda-articles')
+    cdaArticles.innerHTML = toDisplay
+    info.innerHTML = `<img src=${mypic} />`
 }
 
 // country codes: au, ca, us, gb, in

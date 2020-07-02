@@ -54,7 +54,7 @@ router.get('/', async (req, res, next) => {
                     throw new Error('invalid country code')
             }
         })
-        res.json(display)
+        res.send(display)
     } catch (err) {
         console.log(err)
         res.status(400).send(err.message)
