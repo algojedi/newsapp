@@ -5,8 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>World News</title>
         <link rel="stylesheet" href="styles/styles.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
-
+        <link
+            href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <header class="header">
@@ -14,80 +16,138 @@
         </header>
         <main class="main" id="main">
             <!-- canada ------------------------>
-            <div class="card" name="ca" onclick="cardClicked(this)" >
-                <div class="card_side card_side--front can">
+            <div class="card" name="ca"  id="canada">
+                <div class="card_side card_side--front can" onclick="flipCard(this)" name="canada">
                     <div class="card_side--front_title-bg">
                         <h3 class="card_side--front_title">Canada</h3>
                     </div>
-                    
                 </div>
                 <div class="card_side card_side--back">
-                    <i class="fas fa-sync-alt card_side_flip"></i>
-                    <h3 class="card_side--back_title">Top Stories in Canada</h3>
-                    <hr class="styled-hr styled-hr--white" />
-                        <div class="card_side--back_articles" id="can-articles"></div>
+                    <div class="card_side--back_header">
+                        <img
+                            src="./assets/rotate-symbol.svg"
+                            name="canada"
+                            alt="rotate icon"
+                            class="rotate-icon"
+                            onclick="flipCard(this)"
+                        />
+                        <h3 class="card_side--back_title">
+                            Top Stories in Canada
+                        </h3>
+                        <hr class="styled-hr styled-hr--white" />
+                    </div>
+                    <div
+                        class="card_side--back_articles"
+                        id="can-articles"
+                    ></div>
                 </div>
             </div>
 
             <!-- usa ------------------------>
-            <div class="card" name="us" onclick="cardClicked(this)" >
-                <div class="card_side card_side--front us">
+            <div class="card" name="us"  id="usa">
+                <div class="card_side card_side--front us" onclick="flipCard(this)" name="usa">
                     <div class="card_side--front_title-bg">
                         <h3 class="card_side--front_title">USA</h3>
                     </div>
-                    
                 </div>
                 <div class="card_side card_side--back">
-                    <i class="fas fa-sync-alt card_side_flip"></i>
-                    <h3 class="card_side--back_title">Top Stories in the US</h3>
-                    <hr class="styled-hr styled-hr--white" />
-                        <div class="card_side--back_articles" id="us-articles"></div>
+                    <div class="card_side--back_header">
+                        <img
+                            src="./assets/rotate-symbol.svg"
+                            name="usa"
+                            alt="rotate icon"
+                            class="rotate-icon"
+                            onclick="flipCard(this)"
+                        />
+                        <h3 class="card_side--back_title">Top Stories in the US</h3>
+                        <hr class="styled-hr styled-hr--white" />
+                    </div>
+                    <div
+                        class="card_side--back_articles"
+                        id="us-articles"
+                    ></div>
                 </div>
             </div>
 
             <!-- UK ------------------------>
-            <div class="card" name="uk" onclick="cardClicked(this)" >
-                <div class="card_side card_side--front uk">
+            <div class="card" name="gb" id="england">
+                <div class="card_side card_side--front uk" onclick="flipCard(this)" name="england">
                     <div class="card_side--front_title-bg">
                         <h3 class="card_side--front_title">United Kingdom</h3>
                     </div>
-                    
                 </div>
                 <div class="card_side card_side--back">
-                    <i class="fas fa-sync-alt card_side_flip"></i>
-                    <h3 class="card_side--back_title">Top Stories in the UK</h3>
-                    <hr class="styled-hr styled-hr--white" />
-                        <div class="card_side--back_articles" id="uk-articles"></div>
+                    <div class="card_side--back_header">
+                        <img
+                            src="./assets/rotate-symbol.svg"
+                            name="england"
+                            alt="rotate icon"
+                            class="rotate-icon"
+                            onclick="flipCard(this)"
+                        />
+                        <h3 class="card_side--back_title">
+                            Top Stories in the UK
+                        </h3>
+                        <hr class="styled-hr styled-hr--white" />
+                    </div>
+                    <div
+                        class="card_side--back_articles"
+                        id="uk-articles"
+                    ></div>
                 </div>
             </div>
             <!-- India ------------------------>
-            <div class="card" name="in" onclick="cardClicked(this)">
-                <div class="card_side card_side--front in">
+            <div class="card" name="in"  id="india">
+                <div class="card_side card_side--front in" onclick="flipCard(this)" name="india">
                     <div class="card_side--front_title-bg">
-                        <h3 class="card_side--front_title">India</h3>
+                        <h3 class="card_side--front_title">Canada</h3>
                     </div>
-                    
                 </div>
                 <div class="card_side card_side--back">
-                    <i class="fas fa-sync-alt card_side_flip"></i>
-                    <h3 class="card_side--back_title">Top Stories in India</h3>
-                    <hr class="styled-hr styled-hr--white" />
-                        <div class="card_side--back_articles" id="in-articles"></div>
+                    <div class="card_side--back_header">
+                        <img
+                            src="./assets/rotate-symbol.svg"
+                            name="india"
+                            alt="rotate icon"
+                            class="rotate-icon"
+                            onclick="flipCard(this)"
+                        />
+                        <h3 class="card_side--back_title">
+                            Top Stories in India
+                        </h3>
+                        <hr class="styled-hr styled-hr--white" />
+                    </div>
+                    <div
+                        class="card_side--back_articles"
+                        id="in-articles"
+                    ></div>
                 </div>
             </div>
             <!-- Australia ------------------------>
-            <div class="card" name="au" onclick="cardClicked(this)" >
-                <div class="card_side card_side--front au">
+            <div class="card" name="au"  id="australia">
+                <div class="card_side card_side--front au" onclick="flipCard(this)" name="australia">
                     <div class="card_side--front_title-bg">
                         <h3 class="card_side--front_title">Australia</h3>
                     </div>
-                    
                 </div>
                 <div class="card_side card_side--back">
-                    <i class="fas fa-sync-alt card_side_flip"></i>
-                    <h3 class="card_side--back_title">Top Stories in Australia</h3>
-                    <hr class="styled-hr styled-hr--white" />
-                        <div class="card_side--back_articles" id="au-articles"></div>
+                    <div class="card_side--back_header">
+                        <img
+                            src="./assets/rotate-symbol.svg"
+                            name="australia"
+                            alt="rotate icon"
+                            class="rotate-icon"
+                            onclick="flipCard(this)"
+                        />
+                        <h3 class="card_side--back_title">
+                            Top Stories in Australia
+                        </h3>
+                        <hr class="styled-hr styled-hr--white" />
+                    </div>
+                    <div
+                        class="card_side--back_articles"
+                        id="au-articles"
+                    ></div>
                 </div>
             </div>
 
