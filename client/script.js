@@ -68,7 +68,7 @@ const dispalyArticles = (articles, name) => {
         <div class="article"> 
             <div class='img-wrapper'>
                 <div class='img-wrapper-inside'>
-                    <img class="article-photo" src=${article.urlToImage}>
+                    <img class="article-photo" alt="news article photo" src=${article.urlToImage}>
                 </div>
             </div>
             <a class='article-link' href=${article.url} target="_blank">

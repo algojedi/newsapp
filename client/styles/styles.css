@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 :root {
-    --card-size: 200px;
+    --card-size: 125px;
+    --mobile-size: 700px;
     --back-color: rgb(37, 49, 73);
     font-family: Helvetica, sans-serif;
     line-height: 1rem;
@@ -15,8 +16,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-
 }
 .main > * {
 }
@@ -39,10 +38,9 @@
     perspective: 40rem;
     -moz-perspective: 50rem;
     position: relative;
-    /* margin: 1rem; */
     height: var(--card-size);
     padding: 1rem;
-    margin: 2rem;
+    margin: 1rem;
 }
 .card.flipped {
     z-index: 500;
@@ -61,7 +59,7 @@
     transition: all 0.5s ease;
     position: absolute;
     /* box-shadow: 0 0.25rem 2rem 0.15rem rgba(0, 0, 0, 0.15); */
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
     border-radius: 0.5rem;
     top: 0;
     left: 0;
@@ -86,9 +84,10 @@
     background-repeat: no-repeat;
     cursor: pointer;
     padding: 1rem;
-    flex: 0 0 200px;
+    flex: 0 0 150px;
 }
 .card_side--front:hover {
+    outline: 2px solid grey;
 }
 
 .card_side--front_title-bg {
@@ -108,7 +107,7 @@
     color: white;
     /* text-align: center; */
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 .card_side--front_desc {
     color: #333333;
@@ -180,26 +179,26 @@
 
 /**** Dynamically generated classes via JS *****/
 .article {
-    margin: 2rem 0 3rem;
+    margin: 2rem 0 0.5rem;
     /* display: grid; */
     /* grid-template-columns: 1fr; */
 }
+
 /* a double wrapper for article photo - neat trick to size height relative to width */
 .img-wrapper {
-  max-width: 100%;
-  padding-top: 56.25%;
-  height: 0;
-  overflow: hidden;
-  position: relative;
-  border-radius: 0.5rem;
+    max-width: 100%;
+    padding-top: 56.25%;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.5rem;
 }
 .img-wrapper-inside {
     position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 .article-photo {
     width: 100%;
@@ -213,7 +212,7 @@
     margin: 1.5rem 0 0.5rem;
     cursor: pointer;
     font-size: 1.4rem;
-    transition: color .25s ease;
+    transition: color 0.25s ease;
 }
 .article-title:hover {
     color: lightblue;
@@ -222,38 +221,6 @@
     margin: 0.5rem 0 3rem;
     font-size: 1.2rem;
 }
-
-/* container for the article link */
-/* .article-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.article-btn-link {
-    box-shadow: 0px 0px 0px 2px #9fb4f2;
-    background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-    background-color: #7892c2;
-    border-radius: 10px;
-    border: 1px solid #4e6096;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: 'Amatic SC', cursive;
-    font-size: 2rem;
-    padding: 0.5rem 2rem;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #283966;
-    margin: 1.5rem 0 2rem;
-    justify-self: center;
-}
-.article-btn-link:hover {
-    background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-    background-color: #476e9e;
-}
-.article-btn-link:active {
-    position: relative;
-    top: 1px;
-}  */
 
 .article-separator {
     overflow: visible; /* For IE */
@@ -283,10 +250,21 @@
         margin: 1rem auto;
     }
 }
-@media screen and (min-width: 700px) {
 
+/* large devices ------------------ */
+@media screen and (min-width: 700px) {
+    :root {
+    --card-size: 200px;
+  }
     .header_title {
+
         font-size: 5rem;
+    }
+    .card {
+        margin: 2rem;
+    }
+    .card_side--front_title {
+        font-size: 2rem;
     }
     .card_side--back_articles {
         width: 90%;
@@ -295,14 +273,11 @@
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 3rem;
     }
+    .article {
+        margin: 2rem 0 3rem;
+    }
     .article-separator,
     .article-separator:after {
         display: none;
     }
-}
-@media screen and (min-width: 900px) {
-    /* .card_side--back_articles {
-        width: 40%;
-        margin: 1rem auto;
-    } */
 }
