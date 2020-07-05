@@ -10,15 +10,24 @@ const state = {
     au: false,
     us: false,
     in: false,
-    gb: false
+    gb: false,
 }
 
 const flipCard = (element) => {
-    const country = element.getAttribute('name')
-    const parentElement = document.getElementById(country)
-    parentElement.classList.toggle('flipped')
-    const cardName = parentElement.getAttribute('name')
-    getArticles(cardName)
+    if (element.tagName === 'IMG') {
+        tlBack.timeScale(2)
+        tlBack.delay(0)
+        tlBack.reverse()
+    }
+    // add a delay to appreciate animation
+    setTimeout(() => {
+        const country = element.getAttribute('name')
+        console.log({ element })
+        const parentElement = document.getElementById(country)
+        parentElement.classList.toggle('flipped')
+        const cardName = parentElement.getAttribute('name')
+        getArticles(cardName)
+    }, 500)
 }
 
 const getArticles = (name) => {
@@ -27,7 +36,7 @@ const getArticles = (name) => {
     if (state[name] && !hourChanged) {
         // update news once an hour
         console.log('not reloading ', state[name])
-        return 
+        return
     }
     state.hour = new Date().getHours() // update hour of last refresh
 
@@ -35,12 +44,10 @@ const getArticles = (name) => {
     const url = `/main?id=${name}`
 
     const xhr = new XMLHttpRequest()
-    console.log('about to make http req')
     xhr.open('GET', url, true)
 
     xhr.onprogress = function () {
         state.isLoading = true
-
     }
     xhr.onerror = function () {
         state.isLoading = false
@@ -53,7 +60,6 @@ const getArticles = (name) => {
             const topArticles = result.filter((el, i) => {
                 return i < numOfArticlesToDisplay
             })
-            console.log({ topArticles })
             dispalyArticles(topArticles, name)
         }
     }
@@ -101,8 +107,20 @@ const findElement = (name) => {
     }
 }
 
-// gsap
-const timeline = gsap.timeline({ defaults: { duration: .75 }})
-timeline
-      .from( '.header', { y: '-100%', ease: 'bounce' } )
-      .from('.card_side--front', { opacity: 0, stagger: 0.25 })
+// ---------------  gsap
+// tlFront for the front icons and tlBack for the back articles
+const tlFront = gsap.timeline({ defaults: { duration: 1 } })
+tlFront
+    .from('.header', { y: '-100%', ease: 'bounce' })
+    .from('.card_side--front', { opacity: 0, stagger: 0.15 }, '<.5')
+
+tlBack = gsap.timeline({ defaults: { duration: 1 } })
+tlBack.from('.card_side--back_articles', { opacity: 0, y: '-100%' })
+
+const frontElements = document.querySelectorAll('.card_side--front')
+frontElements.forEach((el) => {
+    el.addEventListener('click', () => {
+        // timeline.reversed() ? timeline.play() : timeline.reverse()
+        tlBack.delay(1.5).timeScale(0.5).play(0.1)
+    })
+})

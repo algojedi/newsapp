@@ -8,7 +8,7 @@
     --mobile-size: 700px;
     --back-color: rgb(37, 49, 73);
     font-family: Helvetica, sans-serif;
-    line-height: 1rem;
+    line-height: 1.2;
     font-size: 62.5%;
 }
 
@@ -17,8 +17,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-.main > * {
-}
+
 .header {
     height: 5rem;
     display: flex;
@@ -29,12 +28,10 @@
 .header_title {
     font-size: 4rem;
     font-family: 'Amatic SC', cursive;
-    /* text-align: center; */
 }
 
 .card {
     flex: 0 0 var(--card-size);
-    /* justify-content: center; */
     perspective: 40rem;
     -moz-perspective: 50rem;
     position: relative;
@@ -58,7 +55,6 @@
     color: #c1c1c1;
     transition: all 0.5s ease;
     position: absolute;
-    /* box-shadow: 0 0.25rem 2rem 0.15rem rgba(0, 0, 0, 0.15); */
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
     border-radius: 0.5rem;
     top: 0;
@@ -86,8 +82,19 @@
     padding: 1rem;
     flex: 0 0 150px;
 }
-.card_side--front:hover {
-    outline: 2px solid grey;
+.card_side--front:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white, #97d7e5);
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+.card_side--front:hover:after {
+    opacity: 0.2;
 }
 
 .card_side--front_title-bg {
@@ -180,8 +187,6 @@
 /**** Dynamically generated classes via JS *****/
 .article {
     margin: 2rem 0 0.5rem;
-    /* display: grid; */
-    /* grid-template-columns: 1fr; */
 }
 
 /* a double wrapper for article photo - neat trick to size height relative to width */
@@ -219,7 +224,7 @@
 }
 .article-desc {
     margin: 0.5rem 0 3rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .article-separator {
@@ -227,8 +232,6 @@
     height: 30px;
     border-style: solid;
     border-color: whitesmoke;
-
-    /* border-color: blue; */
     border-width: 1px 0 0 0;
     border-radius: 10px;
 }
@@ -239,7 +242,6 @@
     margin-top: -31px;
     border-style: solid;
     border-color: whitesmoke;
-    /* border-color: blue; */
     border-width: 0 0 1px 0;
     border-radius: 10px;
 }
@@ -254,10 +256,9 @@
 /* large devices ------------------ */
 @media screen and (min-width: 700px) {
     :root {
-    --card-size: 200px;
-  }
+        --card-size: 200px;
+    }
     .header_title {
-
         font-size: 5rem;
     }
     .card {
