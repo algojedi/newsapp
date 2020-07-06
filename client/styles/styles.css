@@ -12,6 +12,9 @@
     font-size: 62.5%;
 }
 
+body {
+    opacity: 0;
+}
 .main {
     display: flex;
     flex-wrap: wrap;
