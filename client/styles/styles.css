@@ -186,6 +186,12 @@
 .card_side--front.uk {
     background-image: url('../assets/uk.svg');
 }
+.card_side--front.fr {
+    background-image: url('../assets/france.svg');
+}
+.card_side--front.de {
+    background-image: url('../assets/germany.svg');
+}
 
 /* container class for articles */
 .card_side--back_articles {

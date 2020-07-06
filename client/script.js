@@ -11,9 +11,13 @@ const state = {
     us: false,
     in: false,
     gb: false,
+    fr: false,
+    de: false,
 }
 
 const flipCard = (element) => {
+
+        console.log({ element })
     if (element.tagName === 'IMG') {
         tlBack.timeScale(2)
         tlBack.delay(0)
@@ -22,7 +26,7 @@ const flipCard = (element) => {
     // add a delay to appreciate animation
     setTimeout(() => {
         const country = element.getAttribute('name')
-        console.log({ element })
+        console.log({ country })
         const parentElement = document.getElementById(country)
         parentElement.classList.toggle('flipped')
         const cardName = parentElement.getAttribute('name')
@@ -42,7 +46,7 @@ const getArticles = (name) => {
 
     state[name] = true // indicates country info has been fetched
     const url = `/main?id=${name}`
-
+    console.log({url})
     const xhr = new XMLHttpRequest()
     xhr.open('GET', url, true)
 
@@ -57,6 +61,7 @@ const getArticles = (name) => {
         state.isLoading = false
         if (this.status == 200) {
             const result = JSON.parse(this.responseText)
+            console.log({result})
             const topArticles = result.filter((el, i) => {
                 return i < numOfArticlesToDisplay
             })
@@ -85,6 +90,7 @@ const dispalyArticles = (articles, name) => {
         </div>
         `
     })
+    console.log({toDisplay})
     const elementToFill = findElement(name)
     if (!elementToFill) return // TODO: assign error html to an element that displays errors
     elementToFill.innerHTML = toDisplay
@@ -102,6 +108,10 @@ const findElement = (name) => {
             return document.getElementById('au-articles')
         case 'in':
             return document.getElementById('in-articles')
+        case 'fr':
+            return document.getElementById('fr-articles')
+        case 'de':
+            return document.getElementById('de-articles')
         default:
             return null
     }
