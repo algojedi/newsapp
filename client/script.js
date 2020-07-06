@@ -37,14 +37,12 @@ const getArticles = (name) => {
     const hourChanged = Math.abs(currentHour - state.hour) > 0
     if (state[name] && !hourChanged) {
         // update news once an hour
-        console.log('not reloading ', state[name])
         return
     }
     state.hour = new Date().getHours() // update hour of last refresh
 
     state[name] = true // indicates country info has been fetched
     const url = `/main?id=${name}`
-    console.log({url})
     const xhr = new XMLHttpRequest()
     xhr.open('GET', url, true)
 
@@ -60,7 +58,6 @@ const getArticles = (name) => {
         state.isLoading = false
         if (this.status == 200) {
             const result = JSON.parse(this.responseText)
-            console.log({result})
             const topArticles = result.filter((el, i) => {
                 return i < numOfArticlesToDisplay
             })
