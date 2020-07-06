@@ -2,7 +2,7 @@
 const body = document.getElementsByTagName('body')[0]
 setTimeout(() => {
     body.style.opacity = 1
-}, 100);
+}, 400);
 
 const info = document.getElementById('info')
 const main = document.getElementById('main')
