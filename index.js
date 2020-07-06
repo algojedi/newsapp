@@ -4,11 +4,11 @@ const bodyParser = require('body-parser')
 require('dotenv').config();
 const routes = require('./routes/main')
 // const cors = require('cors')
+const compression = require('compression')
 
 const app = express()
-
 // app.use(cors())
-
+app.use(compression())
 
 app.use(bodyParser.json()); 
 app.use(express.static(path.join(__dirname, "client")));
@@ -17,7 +17,6 @@ app.use(express.static(path.join(__dirname, "client")));
   res.sendFile(path.join(__dirname, "client", "index.html"));
 })
 })
-
 
 app.use('/main', routes);
 

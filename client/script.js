@@ -17,7 +17,6 @@ const state = {
 
 const flipCard = (element) => {
 
-        console.log({ element })
     if (element.tagName === 'IMG') {
         tlBack.timeScale(2)
         tlBack.delay(0)
@@ -26,7 +25,6 @@ const flipCard = (element) => {
     // add a delay to appreciate animation
     setTimeout(() => {
         const country = element.getAttribute('name')
-        console.log({ country })
         const parentElement = document.getElementById(country)
         parentElement.classList.toggle('flipped')
         const cardName = parentElement.getAttribute('name')
@@ -52,6 +50,7 @@ const getArticles = (name) => {
 
     xhr.onprogress = function () {
         state.isLoading = true
+        dispalyArticles(null, name)
     }
     xhr.onerror = function () {
         state.isLoading = false
@@ -72,7 +71,13 @@ const getArticles = (name) => {
 }
 
 const dispalyArticles = (articles, name) => {
-    if (!articles) return
+    const elementToFill = findElement(name)
+    if (!elementToFill) return // TODO: assign error html to an element that displays errors
+    if (!articles) {
+        // articles have not yet loaded
+        elementToFill.innerHTML = '<h3>...loading</h3>'
+        return
+    } 
     let toDisplay = ''
     articles.forEach((article) => {
         toDisplay += ` 
@@ -90,9 +95,6 @@ const dispalyArticles = (articles, name) => {
         </div>
         `
     })
-    console.log({toDisplay})
-    const elementToFill = findElement(name)
-    if (!elementToFill) return // TODO: assign error html to an element that displays errors
     elementToFill.innerHTML = toDisplay
 }
 

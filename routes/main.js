@@ -37,7 +37,6 @@ const caSources = [...globalSrcs, 'CBC News', 'Ctvnews.ca']
 const auSources = [...globalSrcs, 'News.com.au', 'ABC News (AU)']
 // const deSources = [...globalSrcs, 'CBC News', 'Ctvnews.ca',]
 // const frSources = [...globalSrcs, 'News.com.au', 'ABC News (AU)']
-// const saSources = [...globalSrcs, 'News24'] // S Africa
 
 router.get('/', async (req, res, next) => {
     let { id } = req.query
